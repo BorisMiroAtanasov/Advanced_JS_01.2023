@@ -9,3 +9,21 @@ function editElement(element, match, replacer) {
 
    // console.log(text);
 }
+
+
+/* secon variant
+
+function editElement(element, match, replacer) {
+
+   
+    const text = element.textContent;
+
+    const result  = text.split(match).join(replacer)
+
+    element.textContent = result;
+
+   // console.log(text);
+}
+
+
+*/
