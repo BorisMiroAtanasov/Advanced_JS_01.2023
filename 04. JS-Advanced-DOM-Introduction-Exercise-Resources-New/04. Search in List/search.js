@@ -5,7 +5,7 @@ function search() {
   let count = 0;
 
   for (const town of towns) {
-    if (town.textContent.includes(serchText)) {
+    if (town.textContent.includes(serchText) && serchText !=='') {
       count++;
       town.style.fontWeight = "bold";
       town.style.textDecoration = "underline";
