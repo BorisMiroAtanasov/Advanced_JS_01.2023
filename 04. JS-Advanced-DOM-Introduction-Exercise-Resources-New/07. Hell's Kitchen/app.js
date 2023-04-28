@@ -41,13 +41,18 @@ function solve() {
        }
       avgSalary = totalSalary / values.length;
       if( avgSalary > currentAvgSAlary){
-         avgSalary = currentAvgSAlary;
+         currentAvgSAlary = avgSalary;
          bestName = key;
-         totalSalary = 0
+         totalSalary = 0;
       }
-     
-
     }
+    let result = Object.entries(outPut[bestName]).sort((a,b) => b[1] - a[1]);
+    let print = ``;
+
+    result.forEach(w => print += `Name: ${w[0]} With Salary: ${w[1]} `);
+    document.querySelector('#bestRestaurant p').textContent = `Name: ${bestName} Average Salary: ${currentAvgSAlary.toFixed(2)} Best Salary: ${result[0][1]}`;
+    document.querySelector('#workers p').textContent = print;
+
 
    
   }
