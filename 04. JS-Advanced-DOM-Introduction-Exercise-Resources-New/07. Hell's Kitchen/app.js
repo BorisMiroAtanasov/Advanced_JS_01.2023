@@ -17,12 +17,21 @@ function solve() {
       for ( worker of workersData){
          let [name, salary] = worker.split(' ');
 
+         if (!outPut.hasOwnProperty(restaurantName)){
+            outPut[restaurantName] = {}
+         }
+         if(outPut.hasOwnProperty(restaurantName)){
+            outPut[restaurantName][name] = Number(salary);
+
+         }
 
       }
 
+    }
 
-      console.log(workersData);
-
+    let entries = Object.entries(outPut)
+    for (let entriy of entries){
+      console.log(entriy);
 
 
     }
