@@ -30,12 +30,25 @@ function solve() {
     }
 
     let entries = Object.entries(outPut)
-    for (let entriy of entries){
-      console.log(entriy);
-
+    for (let entry of entries){
+      //console.log(entriy);
+      let key = entry[0];
+      let values = Object.values(entry[1]);
+      
+      
+      for (let  salary of values) {
+          totalSalary += salary;
+       }
+      avgSalary = totalSalary / values.length;
+      if( avgSalary > currentAvgSAlary){
+         avgSalary = currentAvgSAlary;
+         bestName = key;
+         totalSalary = 0
+      }
+     
 
     }
 
-    //console.log(input[1]);
+   
   }
 }
