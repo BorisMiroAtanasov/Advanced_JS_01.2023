@@ -4,5 +4,5 @@ function generateReport() {
     const allTr = Array.from(document.querySelectorAll('tbody tr'));
     const result = [];
 
-    
+    debugger
 }
