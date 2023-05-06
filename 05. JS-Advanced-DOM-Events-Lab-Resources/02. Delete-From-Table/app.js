@@ -1,5 +1,35 @@
-function deleteByEmail(){
+function deleteByEmail() {
+    //read input value
+    let query = document.querySelector("input[name ='email']").value;
+
+
+    //get all rows
+    const rows = document.querySelectorAll('#customers tbody tr');
+
+    let rowsArray = Array.from(rows);
+    let del = false;
+
+    //iterate rows and compaer contents to input
+    //console.log(rowsArray);
+
+    for (let row of rowsArray) {
+        const col = row.children[1];
+
+        if(col.textContent == query){
+            //remove matching rows
+            row.remove()
+           del = true;
+        }
+        
+        
+    }
+    document.getElementById('result').textContent = del ? 'Delete' : 'Not found.'
+
+
     
+
+
+
 }
 
 
