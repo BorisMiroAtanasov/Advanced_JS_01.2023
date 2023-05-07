@@ -1,6 +1,6 @@
 function attachGradientEvents() {
     const gradiaent = document.getElementById('gradient');
-    gradiaent.addEventListener('click', onClick);
+    gradiaent.addEventListener('mousemove', onClick);
 
 
     function onClick(event){
