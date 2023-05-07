@@ -1,6 +1,7 @@
 function attachGradientEvents() {
     const gradiaent = document.getElementById('gradient');
     gradiaent.addEventListener('mousemove', onClick);
+    gradiaent.addEventListener('mouseout', gradientOut);
 
 
     function onClick(event){
@@ -9,7 +10,14 @@ function attachGradientEvents() {
 
         document.getElementById('result').textContent = percent + '%';
 
-        
+    
+    }
+
+    function gradientOut(event){
+        document.getElementById('result').textContent = '';
+
 
     }
+
+
 }
