@@ -9,7 +9,18 @@ function addItem() {
     const btnDelete = document.createElement('a');
     btnDelete.href = '#';
     btnDelete.textContent = '[Delete]';
-    btnDelete.addEventListener('click', () => li.remove());
+   btnDelete.addEventListener('click', () => li.remove());
+//  confirm option 
+    // btnDelete.addEventListener('click', () => {
+    //     const choice = confirm('Are you shure');
+    //     if(choice){
+    //         li.remove()
+    //     }
+    // });
+
+
+
+
     li.appendChild(btnDelete);
 
 
