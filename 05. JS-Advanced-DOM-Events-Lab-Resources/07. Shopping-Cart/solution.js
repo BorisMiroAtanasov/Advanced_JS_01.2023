@@ -1,3 +1,4 @@
 function solve() {
-   //TODO...
+let products =(document.getElementsByClassName('product')) ;
+console.log(products);
 }
