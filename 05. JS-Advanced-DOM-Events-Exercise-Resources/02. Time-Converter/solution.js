@@ -1,4 +1,4 @@
-
+/*
 function attachEventsListeners() {
 
     let inputDays = document.getElementById('days');
@@ -52,8 +52,8 @@ function attachEventsListeners() {
 
 
 }
-
-/* Ivo Dimitrov - exercises
+*/
+// Ivo Dimitrov - exercises
 function attachEventsListeners() {
     let days = document.getElementById("days");
     let hours = document.getElementById("hours");
@@ -89,6 +89,7 @@ function attachEventsListeners() {
 
     function onConvert(event) {
         let input = event.target.parentElement.querySelector('input[type="text"]');
+       
 
         let time = convert(Number(input.value), input.id);
 
@@ -101,4 +102,4 @@ function attachEventsListeners() {
     }
 }
 
-*/
+
