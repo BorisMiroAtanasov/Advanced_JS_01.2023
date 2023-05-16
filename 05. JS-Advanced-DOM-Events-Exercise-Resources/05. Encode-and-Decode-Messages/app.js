@@ -11,15 +11,15 @@ function encodeAndDecodeMessages() {
   // console.log(arrayForEncode);
 
    for (let i=0 ; i < arrayForEncode.length ; i++){
-    let curent = stringForEncode.charCodeAt(i+1);
-    result = curent
+    let curent = stringForEncode.charCodeAt(i);
+    result = curent + 1 
 
 
 
 
 
 
-    console.log(curent);
+    console.log(result);
    }
 
    
