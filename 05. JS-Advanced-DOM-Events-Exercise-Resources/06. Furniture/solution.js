@@ -11,7 +11,10 @@ function solve() {
   generateBtn.addEventListener('click', generate);
 
   function generate(){
-    
+    //current = JSON.stringify(inputArea);
+    current = JSON.parse(inputArea);
+    console.log(current);
+
   }
 
  
