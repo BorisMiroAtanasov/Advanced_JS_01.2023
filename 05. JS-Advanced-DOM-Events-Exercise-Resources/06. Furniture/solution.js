@@ -13,7 +13,7 @@ function solve() {
   function generate(){
     //current = JSON.stringify(inputArea);
     current = JSON.parse(inputArea);
-    console.log(current);
+    //console.log(current);
 
   }
 
