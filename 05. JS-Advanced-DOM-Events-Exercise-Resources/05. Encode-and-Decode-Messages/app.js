@@ -1,3 +1,4 @@
+/*
 function encodeAndDecodeMessages() {
   let encodeTextArea = Array.from(document.querySelectorAll("textarea"))[0];
   let dencodeTextArea = Array.from(document.querySelectorAll("textarea"))[1];
@@ -52,6 +53,40 @@ function encodeAndDecodeMessages() {
 
   }
 
+}
+*/
+//Dimitar krastanov - lektor
+function encodeAndDecodeMessages(){
+    const textArea = document.querySelectorAll("textarea");
+    const buttons= document.querySelectorAll("button");
+    buttons[0].addEventListener('click', encode);
+    buttons[1].addEventListener('click', decode);
+
+    function encode(){
+        let encodeMassage = '';
+        const input = textArea[0].value;
+        for(let i = 0; i< input.length ; i++){
+            let element = input[i];
+            encodeMassage += String.fromCharCode(element.charCodeAt(0)+1)
+
+        }
+        textArea[1].value = encodeMassage;
+        textArea[0].value = ''
+
+    }
+
+    function decode(){
+        let decodeMassage = '';
+        const input = textArea[1].value;
+        for(let i = 0; i< input.length ; i++){
+            let element = input[i];
+            decodeMassage += String.fromCharCode(element.charCodeAt(0)-1)
+
+        }
+        textArea[1].value = decodeMassage;
+       
+
+    }
 
 
 
