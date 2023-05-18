@@ -3,8 +3,18 @@ function solve() {
   let inputArea = textAreas[0].value;
   let outPutArea = textAreas[1].value;
 
-  console.log(inputArea);
-  console.log(outPutArea);
+  const buttons = document.querySelectorAll('button');
+
+  let generateBtn = buttons[0];
+  let buyBtn = buttons[1];
+
+  generateBtn.addEventListener('click', generate);
+
+  function generate(){
+    
+  }
+
+ 
 
 
  
