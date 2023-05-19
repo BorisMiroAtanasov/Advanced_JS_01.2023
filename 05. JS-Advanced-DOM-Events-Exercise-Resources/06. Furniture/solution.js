@@ -2,6 +2,8 @@ function solve() {
   const textAreas = document.querySelectorAll('textarea');
   let inputArea = textAreas[0].value;
   let outPutArea = textAreas[1].value;
+  const tableRow = document.querySelectorAll('.table tbody tr')
+  //console.log(tableRow);
 
   const buttons = document.querySelectorAll('button');
 
@@ -13,7 +15,27 @@ function solve() {
   function generate(){
     //current = JSON.stringify(inputArea);
     current = JSON.parse(inputArea);
-    //console.log(current);
+   // console.log(current);
+   current.forEach(element => {
+    for (const [property, value] in element) {
+      //let currentTd = document.createElement('td');
+    //   for (let i = 0 ; i<element.length ; i++ ){
+    //     let newParagraph = document.createElement('p');
+    //     newParagraph.textContent = element.property(i);
+    //     currentTd.appendChild(newParagraph)
+
+    //   }
+    debugger
+    console.log(property);
+    //console.log(value);
+
+    }
+    
+    
+  
+    
+   });
+   
 
   }
 
