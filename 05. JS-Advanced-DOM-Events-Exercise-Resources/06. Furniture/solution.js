@@ -3,6 +3,8 @@ function solve() {
 
   generateBtn.addEventListener("click", generate);
   buyBtn.addEventListener('click',buy);
+  let outPutArea = document.querySelectorAll('textarea')[1]
+  
 
   function generate() {
     const input = JSON.parse(document.querySelector("textarea").value);
@@ -48,6 +50,7 @@ function buy() {
  let averageFactor = 0;
  let totalCost = 0;
  let productArr = [];
+ let bougthList = []
 
  checkBox.forEach(element => {
   if(element.checked == true){
@@ -57,10 +60,17 @@ function buy() {
 
  });
  productArr.forEach(element =>{
-  
-  console.log(element.children );
- })
- //console.log(productArr);
+ let produckt =  Array.from(element.children)
+ totalCost += Number(produckt[2].textContent)
+ averageFactor += Number(produckt[3].textContent)/productArr.length
+ bougthList.push(produckt[1].textContent)
+ 
+ 
+ });
+//  console.log(`Bought furniture: ${bougthList.join(',')}`);
+//  console.log(totalCost);
+//  console.log(averageFactor);
+ outPutArea.value = `Bought furniture: ${bougthList.join(',')}\n Total price: ${totalCost.toFixed(2)}\n Average decoration factor: ${averageFactor}`
 
   
 }
