@@ -2,7 +2,7 @@ function solve() {
   const [generateBtn, buyBtn] = Array.from(document.querySelectorAll("button"));
 
   generateBtn.addEventListener("click", generate);
-  // buyBtn.addEventListener('click',buy);
+  buyBtn.addEventListener('click',buy);
 
   function generate() {
     const input = JSON.parse(document.querySelector("textarea").value);
@@ -41,4 +41,29 @@ function solve() {
       document.querySelector('tbody').appendChild(tr)
     });
   }
+
+function buy() {
+  const checkBox = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+ // console.log(checkBox);
+ let averageFactor = 0;
+ let totalCost = 0;
+ let productArr = [];
+
+ checkBox.forEach(element => {
+  if(element.checked == true){
+    let selectedProduct = (element.parentElement.parentElement);
+    productArr.push(selectedProduct)
+  }
+
+ });
+ productArr.forEach(element =>{
+  
+  console.log(element.children );
+ })
+ //console.log(productArr);
+
+  
+}
+
+
 }
