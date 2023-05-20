@@ -3,8 +3,9 @@ function solve() {
 
   generateBtn.addEventListener("click", generate);
   buyBtn.addEventListener('click',buy);
-
+  let outPutArea = document.querySelectorAll('textarea')[1]
   
+
   function generate() {
     const input = JSON.parse(document.querySelector("textarea").value);
     input.forEach((element) => {
@@ -44,30 +45,34 @@ function solve() {
   }
 
 function buy() {
-  const checkBoxs = Array.from(document.querySelectorAll('tbody input')).filter((x) => x.checked);
-  const bought = [];
-  let price = 0;
-  let decorationFactor = 0;
- // console.log(buyBtn);
+  const checkBox = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+ // console.log(checkBox);
+ let averageFactor = 0;
+ let totalCost = 0;
+ let productArr = [];
+ let bougthList = []
 
-  checkBoxs.forEach(element =>{
-    const parent = element.parentElement.parentElement;
-    const data = Array.from(parent.querySelectorAll('p'));
-    bought.push(data[0].textContent);
-    price += Number(data[1].textContent);
-    decorationFactor +=Number(data[2].textContent);
+ checkBox.forEach(element => {
+  if(element.checked == true){
+    let selectedProduct = (element.parentElement.parentElement);
+    productArr.push(selectedProduct)
+  }
 
-    
-  });
-  let outPutArea = document.querySelectorAll('textarea')[1]
- //console.log(outPutArea);
-  outPutArea.textContent += `Bought furniture: ${bought.join(', ')}\r\n`
-  outPutArea.textContent += `Total price: ${price.toFixed(2)}\r\n`
-  outPutArea.textContent += `Average decoration factor: ${decorationFactor /checkBoxs.length }`
-
-  
-  
+ });
+ productArr.forEach(element =>{
+ let produckt =  Array.from(element.children)
+ totalCost += Number(produckt[2].textContent)
+ averageFactor += Number(produckt[3].textContent)/productArr.length
+ bougthList.push(produckt[1].textContent)
  
+ 
+ });
+//  console.log(`Bought furniture: ${bougthList.join(',')}`);
+//  console.log(totalCost);
+//  console.log(averageFactor);
+ outPutArea.value = `Bought furniture: ${bougthList.join(', ')}\nTotal price: ${totalCost.toFixed(2)}\nAverage decoration factor: ${averageFactor}`
+
+  
 }
 
 
