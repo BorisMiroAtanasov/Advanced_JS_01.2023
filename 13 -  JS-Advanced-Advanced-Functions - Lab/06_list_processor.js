@@ -1,4 +1,4 @@
-function listProcesor(array) {
+function listProcessor(array) {
     let newArray = [];
    
     for (const el of array) {
@@ -38,6 +38,6 @@ function listProcesor(array) {
 }
 
 
-listProcesor(["add hello", "add again", "remove hello", "add again", "print"]);
+listProcessor(["add hello", "add again", "remove hello", "add again", "print"]);
 
-listProcesor(["add pesho", "add george", "add peter", "remove peter", "print",]);
+listProcessor(["add pesho", "add george", "add peter", "remove peter", "print",]);
