@@ -39,3 +39,5 @@ function listProcesor(array) {
 
 
 listProcesor(["add hello", "add again", "remove hello", "add again", "print"]);
+
+listProcesor(["add pesho", "add george", "add peter", "remove peter", "print",]);
