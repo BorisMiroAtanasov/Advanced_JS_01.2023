@@ -2,22 +2,52 @@ function cars(inputArr){
     let outPutArr = [];
 
     for (const el of inputArr) {
-        let [command, name, action , property] = el.split(' ');
+        let [command, objName, action , property] = el.split(' ');
+
+        if(command ==='create'){
+            let obj={
+                name,
+    
+            }
+
+            create(objName, property)
+        } else if(command ==='create'){
+            print(outPutArr);
+        }
 
         
         
 
     }
 
-    function create(){
+    function create(objName, action, property){
+        let obj={
+            name,
+
+        }
+        obj[name] = objName;
+
+        
+        
+
 
     }
     function inherit(){
 
     }
 
-    function print(){
-        
+    function print(outPutArr){
+        for (const el of outPutArr) {
+            console.log(el);
+        }
+
+
+
+    }
+
+    return{
+        create,
+        print,
     }
 
    
