@@ -5,10 +5,9 @@ function cars(inputArr){
         let [command, objName, action , property] = el.split(' ');
 
         if(command ==='create'){
-            let obj={
-                name,
+            let obj={}
     
-            }
+            
 
             create(objName, property)
         } else if(command ==='create'){
@@ -21,10 +20,7 @@ function cars(inputArr){
     }
 
     function create(objName, action, property){
-        let obj={
-            name,
-
-        }
+       
         obj[name] = objName;
 
         
