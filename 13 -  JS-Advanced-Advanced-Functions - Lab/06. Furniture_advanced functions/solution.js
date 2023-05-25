@@ -18,22 +18,45 @@ function solve() {
 
     c1 = document.createElement("td");
     c1.scope = "col";
-    const img = document.createElement("img");
-    img.src = item.img;
+    
     c1.appendChild(img);
 
     row.appendChild(c1);
-    row.appendChild(createCol.name);
-    row.appendChild(createCol.price);
-    row.appendChild(createCol.decFactor);
+    row.appendChild(createCol(item.name));
+    row.appendChild(createCol(item.price));
+    row.appendChild(createCol(item.decFactor));
+
+    c2 = document.createElement("td");
+    c2.scope = "col";
+    const check = document.createElement("input");
+    check.type = 'checkbox';
+    c2.appendChild(check);
+
+    row.appendChild(c2);
+
+    return row;
   }
 
   function createCol(content) {
     const col = document.createElement("td");
     col.scope = "col";
-    const p = document.createElement("p");
-    p.textContent = content;
+    
     col.appendChild(p);
     return col;
+  }
+
+  function createPara(content){
+    const p = document.createElement("p");
+    p.textContent = content;
+
+    return p;
+
+  }
+
+  function createImg(src){
+    const img = document.createElement("img");
+    img.src = src;
+    return img;
+
   }
 }
