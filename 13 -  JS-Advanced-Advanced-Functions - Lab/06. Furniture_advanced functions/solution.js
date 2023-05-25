@@ -16,23 +16,15 @@ function solve() {
   function createRow(item) {
     const row = document.createElement("tr");
 
-    c1 = document.createElement("td");
-    c1.scope = "col";
     
-    c1.appendChild(img);
+    
+    
 
-    row.appendChild(c1);
-    row.appendChild(createCol(item.name));
-    row.appendChild(createCol(item.price));
-    row.appendChild(createCol(item.decFactor));
-
-    c2 = document.createElement("td");
-    c2.scope = "col";
-    const check = document.createElement("input");
-    check.type = 'checkbox';
-    c2.appendChild(check);
-
-    row.appendChild(c2);
+    row.appendChild(createCol(createImg(item.img)));
+    row.appendChild(createCol(createPara(item.name)));
+    row.appendChild(createCol(createPara(item.price)));
+    row.appendChild(createCol(createPara(item.decFactor)));
+    row.appendChild(createCol(createCheck()));
 
     return row;
   }
@@ -41,7 +33,7 @@ function solve() {
     const col = document.createElement("td");
     col.scope = "col";
     
-    col.appendChild(p);
+    col.appendChild(content);
     return col;
   }
 
@@ -57,6 +49,13 @@ function solve() {
     const img = document.createElement("img");
     img.src = src;
     return img;
+
+  }
+
+  function createCheck(){
+    const check = document.createElement("input");
+    check.type = 'checkbox';
+    return check;
 
   }
 }
