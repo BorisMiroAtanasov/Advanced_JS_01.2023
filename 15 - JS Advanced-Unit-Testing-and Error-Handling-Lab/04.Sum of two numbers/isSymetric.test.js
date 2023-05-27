@@ -16,6 +16,23 @@ describe("Symmetric checker", function () {
     const data = 123;
     expect(isSymmetric(data)).to.be.false;
   });
+  it("returns true when length is odd", () => {
+    const data = [1, 2, 1];
+    expect(isSymmetric(data)).to.be.true;
+  });
+  it("returns false when array;s like arguments", () => {
+    const data = "1221";
+    expect(isSymmetric(data)).to.be.false;
+  });
+  it("returns true with symmetrical string array", () =>{
+    const data = ["a","b","b","a"];
+    expect(isSymmetric(data)).to.be.true
+  });
+  it("returns false for mismache arguments", () => {
+    const data = [1,2,'1'];
+    expect(isSymmetric(data)).to.be.false;
+  });
+
 });
 
 // R.D.
