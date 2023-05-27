@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 
-const isSymmetric = require("./isSymetric");
+const isSymmetric = require("../isSymetric");
 
 describe("Symmetric checker", function () {
   it("return true for simmetric array", () => {
