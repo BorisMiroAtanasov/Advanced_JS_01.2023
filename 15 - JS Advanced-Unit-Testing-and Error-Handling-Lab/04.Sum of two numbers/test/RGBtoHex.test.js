@@ -1,6 +1,6 @@
 const {expect} = require ('chai');
 
-const rgbToHexColor = require('./RGBtoHex');
+const rgbToHexColor = require('../RGBtoHex');
 
 
 describe('RGBtoHex function', function(){
