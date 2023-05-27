@@ -1,5 +1,5 @@
 const {expect} = require ('chai');
-const {sum} = require ('./sumOfTwoNumbers');
+const {sum} = require ('../sumOfTwoNumbers');
 const { describe } = require('mocha');
 
 
