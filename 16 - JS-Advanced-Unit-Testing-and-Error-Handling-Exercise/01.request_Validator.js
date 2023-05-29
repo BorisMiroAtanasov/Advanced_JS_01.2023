@@ -9,7 +9,7 @@ function requestValidator(object){
 
     if (object.method !== 'GET' && object.method !== 'POST' && object.method !== 'DELETE' && object.method !== 'CONNECT' ){
         console.log(`Invalid request header: Invalid Method`);
-    }else if(object.uri !== 1){   
+    }else if(object.uri !== 1){    
        
         
 
