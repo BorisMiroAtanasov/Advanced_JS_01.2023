@@ -9,13 +9,13 @@ describe("Test calculator", function () {
   it("returns zero", () => {
     expect(calc.get()).to.equal(0);
   });
-  it("has correct structure", () => {          // можем да проверим типа но по принцип не трябва да се прави - Виктор Костадинов
+//   it("has correct structure", () => {          // можем да проверим типа но по принцип не трябва да се прави - Виктор Костадинов
 
-    expect(typeof calc).to.equal('object');
-    expect(calc).to.has.ownProperty('add');
-    expect(calc).to.has.ownProperty('subtract');
-    expect(calc).to.has.ownProperty('get');
-  });
+//     expect(typeof calc).to.equal('object');
+//     expect(calc).to.has.ownProperty('add');
+//     expect(calc).to.has.ownProperty('subtract');
+//     expect(calc).to.has.ownProperty('get');
+//   });
 
 
   describe('Number arguments', ()=>{
@@ -29,7 +29,7 @@ describe("Test calculator", function () {
         calc.add(1);
         expect(calc.get()).to.equal(2);
       });
-      it("can subtract number", () => {
+      it("can subtract number", () => {  
         calc.subtract(1);
         expect(calc.get()).to.equal(-1);
       });
