@@ -1,6 +1,10 @@
 function requestValidator(object){
 
     let patern = /([a-z.0-9]+)/gm;
+
+    let maches = object.uri.match(patern);
+
+    console.log(maches);
     
 
     if (object.method !== 'GET' && object.method !== 'POST' && object.method !== 'DELETE' && object.method !== 'CONNECT' ){
@@ -18,7 +22,7 @@ function requestValidator(object){
    
 requestValidator({
   method: 'GET',
-  uri: 'svn.public.catalog',
+  uri: '%appdata%',
   version: 'HTTP/1.1',
   message: ''
 });
