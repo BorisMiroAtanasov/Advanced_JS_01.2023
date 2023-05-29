@@ -1,15 +1,18 @@
 function requestValidator(object){
 
-    let patern = /([a-z.0-9]+)/gm;
+    let patern = /^[\w.]+$/gm          ///([a-z.0-9]+)/gm;
 
     let maches = object.uri.match(patern);
 
-    console.log(maches);
+    
     
 
     if (object.method !== 'GET' && object.method !== 'POST' && object.method !== 'DELETE' && object.method !== 'CONNECT' ){
         console.log(`Invalid request header: Invalid Method`);
-    }else if(object.uri !== 1){    
+        
+    }
+    if(!patern.test(object.uri)){    
+        console.log(`Invalid request header: URI`);
        
         
 
