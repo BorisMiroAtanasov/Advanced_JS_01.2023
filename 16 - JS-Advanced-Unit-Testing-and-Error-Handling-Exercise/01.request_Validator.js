@@ -14,8 +14,6 @@ function requestValidator(object){
     if(!patern.test(object.uri)){    
         console.log(`Invalid request header: URI`);
        
-        
-
     }
 
 
@@ -24,11 +22,11 @@ function requestValidator(object){
 
    
 requestValidator({
-  method: 'GET',
-  uri: '%appdata%',
-  version: 'HTTP/1.1',
-  message: ''
-});
+    method: 'GET',
+    uri: 'svn.public.catalog',
+    version: 'HTTP/1.1',
+    message: ''
+  });
 
 requestValidator({
   method: 'OPTIONS',
