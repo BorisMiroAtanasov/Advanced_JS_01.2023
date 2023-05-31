@@ -1,0 +1,16 @@
+{
+  "name": "16.JS-Advanced-Unit-Testing-and-Error-Handling-Exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01.request_Validator.js",
+  "scripts": {
+    "test": "mocha even_or_odd.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
