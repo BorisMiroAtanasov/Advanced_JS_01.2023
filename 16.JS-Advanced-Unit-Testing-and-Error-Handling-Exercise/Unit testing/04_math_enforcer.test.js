@@ -93,8 +93,8 @@ describe("Test of mathEnforcer", function () {
     it("returns coorrect answer , the two of the params are numbers", () => {
       expect(mathEnforcer.sum(1, 1)).to.be.equal(2);
     });
-    it("returns coorrect answer , the two of the params are numbers one is floating number", () => {
-      expect(mathEnforcer.sum(1, 1.5)).to.be.equal(2.5);
+    it("returns coorrect answer , the two of the params are decimal numbers", () => {
+      expect(mathEnforcer.sum(1.1, 1.5)).to.be.equal(2.6);
     });
     it("returns coorrect answer , the two of the params are negative numbers one is floating number", () => {
       expect(mathEnforcer.sum(-1, -1)).to.be.equal(-2);
