@@ -32,6 +32,9 @@ describe("Test of mathEnforcer", function () {
     it("returns correct answer - add five float negative number input", () => {
         expect(mathEnforcer.addFive(-5)).to.be.equal(0);
       });
+      it("returns correct answer -1 - add five float negative number input", () => {
+        expect(mathEnforcer.addFive(-6)).to.be.equal(-1);
+      });
   });
   describe("test subtract method", function () {
     it("returns undefined, the param is not a number", () => {
@@ -73,13 +76,13 @@ describe("Test of mathEnforcer", function () {
     });
 
     it("returns undefined one of params are arrays ", () => {
-      expect(mathEnforcer.sum([], [])).to.be.undefined;
+      expect(mathEnforcer.sum(1, [])).to.be.undefined;
     });
     it("returns undefined one of params are object", () => {
-      expect(mathEnforcer.sum({}, {})).to.be.undefined;
+      expect(mathEnforcer.sum({},1)).to.be.undefined;
     });
     it("returns undefined one of params are undefined", () => {
-      expect(mathEnforcer.sum(undefined, undefined)).to.be.undefined;
+      expect(mathEnforcer.sum(1, undefined)).to.be.undefined;
     });
     it("returns undefined one of params is string , secon num", () => {
         expect(mathEnforcer.sum('1', 1)).to.be.undefined;
@@ -98,6 +101,9 @@ describe("Test of mathEnforcer", function () {
     });
     it("returns coorrect answer 0 , the two of the params are negative numbers one is floating number", () => {
         expect(mathEnforcer.sum(0, 0)).to.be.equal(0);
+      });
+      it("returns coorrect answer 5 , the two of the params are negative numbers one is floating number", () => {
+        expect(mathEnforcer.sum(10, -5)).to.be.equal(5);
       });
   });
 });
