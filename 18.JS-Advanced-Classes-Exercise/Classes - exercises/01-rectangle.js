@@ -5,7 +5,7 @@ class Rectangle{
         this.color = color;
     }
 
-    calcArea(a, b){
+    calcArea(){
         return this.width * this.height;
     }
 }
