@@ -1,13 +1,28 @@
 function ticketSort(ticketArr, criteria){
 
+    class Ticket{
+        constructor(destination, price, status){
+            this.destination = destination;
+            this.price = price;
+            this.status = status;
+
+        }
+    }
+
+    let result = [];
     for (const element of ticketArr) {
+        let [destination, price, status] = element.split('|');
+
+    result.push(new Ticket(destination, price, status));
         
-            let [destination, price, status] = element.split('|');
-        
-            console.log(destination);
+    
+    }
+
+
+    
             
         
-    }
+    
 
 }
 
