@@ -14,6 +14,15 @@ class List {
         this.result.sort(a,b => a-b)
                 }
 
+     remove(index) {
+        if(index >= this.result.length || index < 0 ){
+            throw Error(`Error`)
+            
+        }
+        this.result.slice(index,1);
+
+     }         
+
 
 
 }
