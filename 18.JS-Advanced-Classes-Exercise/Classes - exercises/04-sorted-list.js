@@ -1,7 +1,15 @@
+
+let result = [];
 class List {
-    constructor(){
-        
+    
+    constructor(num){
+        this.num = num;
+
     }
+   
+    static add(num){
+       return  result.push(num)
+                }
 
 
 
