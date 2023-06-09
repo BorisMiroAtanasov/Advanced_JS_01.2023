@@ -1,28 +1,44 @@
 let result = '';
 class Stringer{
   
-    constructor(string, lengthProperty){
-        this.string = string;
-        this.lengthProperty = lengthProperty;
+    constructor(innerString, innerLength){
+        this.innerString = innerString;
+        this.innerLength = innerLength;
+        let initialString  = this.innerString
 
     }
    
-    decrease(){
-        if(this.lengthProperty >= this.string.length ){
+   
+    decrease(value){
+        if(value >= this.innerLength ){
             result = '' + '...';
-        }else if(this.lengthProperty >0 && this.lengthProperty < this.string.length){
-
+        }else if(value  > 0 &&  this.innerLength > value){
+            result = this.innerString.substring(0, (this.innerLength - value )) + '...'
+        }else{
+            result = this.innerString;
         }
 
     }
 
-    increase(){
+    increase(value){
+        if(value >= result.length){
+            result =   this.innerString
+        }else if(value < result.length){
+           
+        }
+        
 
     }
 
     toString(){
-       return this.string
 
+        // if(this.innerLength > result.length){
+        //     return result = ``+'...';
+        // }else{
+
+        // }
+      
+return result
     }
 
 }
@@ -36,5 +52,5 @@ console.log(test.toString()); // Te...
 test.decrease(5);
 console.log(test.toString()); // ...
 
-test.increase(4); 
+ test.increase(4); 
 console.log(test.toString()); // Test
