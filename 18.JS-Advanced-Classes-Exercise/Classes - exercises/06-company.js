@@ -1,7 +1,9 @@
 let departments = {};
 let companyArr = [];
 class Company {
-  constructor() {}
+  constructor() {
+
+  }
 
   addEmployee(name, salary, profesion, departmet) {
     if (name === undefined || name == "" || name == null) {
@@ -26,6 +28,7 @@ class Company {
     ) {
       throw new Error("Invalid input!");
     }
+    
     companyArr.push(
       (departments = {
         name,
@@ -35,6 +38,11 @@ class Company {
       })
     );
   }
+
+  bestDepartment(){
+    
+  }
+
 }
 
 let c = new Company();
@@ -43,6 +51,6 @@ c.addEmployee("Pesho", 1500, "electrical engineer", "Construction");
 c.addEmployee("Slavi", 500, "dyer", "Construction");
 // c.addEmployee("Stan", 2000, "architect", "Construction");
 // c.addEmployee("Stanimir", 1200, "digital marketing manager","Marketing");
-// c.addEmployee("Pesho", 1000, "graphical designer", "Marketing");
+ c.addEmployee("Pesho", 1000, "graphical designer", "Marketing");
 // c.addEmployee("Gosho", 1350, "HR", "Human resources");
 console.log(companyArr);
