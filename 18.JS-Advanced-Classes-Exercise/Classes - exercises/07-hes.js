@@ -1,20 +1,44 @@
-class Hex{
-    constructor(value){
-        this.value = value;
+class Hex {
+  constructor(value) {
+    this.value = value;
+  }
+  toString() {
+    return `0x${this.value.toString(16)}`.toUpperCase(); // метода toString(16) превръща десетични в 16-тично 
+                                                         // метода toString(2) превръща десетични в двоичнa бр. система
+  }
 
+  valueOf() {
+    return this.value;
+  }
+  plus(input) {
+    if (typeof input === 'object'){
+        let result =  (this.value + input.value);
+        return new Hex(result);
+
+    }else{
+    let result =  (this.value + input);
+    return new Hex(result);
     }
 
+  }
+  minus(input) {
+    if (typeof input === 'object'){
+        let result =  (this.value - input.value);
+        return new Hex(result);
 
-    toString(){
-
+    }else{
+    let result =  (this.value - input);
+    return new Hex(result);
     }
+
+  }
 }
 
-let FF =new Hex(255);
+let FF = new Hex(255);
 console.log(FF.toString());
-FF.valueOf()+1==256;
+FF.valueOf() + 1 == 256;
 let a = new Hex(10);
 let b = new Hex(5);
 console.log(a.plus(b).toString());
 console.log(a.plus(b).toString()==='0xF');
-console.log(FF.parse('AAA'));
+// console.log(FF.parse('AAA'));
