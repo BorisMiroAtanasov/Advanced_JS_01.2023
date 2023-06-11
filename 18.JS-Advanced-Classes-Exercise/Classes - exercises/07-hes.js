@@ -3,7 +3,7 @@ class Hex {
     this.value = value;
   }
   toString() {
-    return `0x${this.value.toString(16)}`.toUpperCase(); // метода toString(16) превръща десетични в 16-тично 
+    return `0x`+`${this.value.toString(16)}`.toUpperCase(); // метода toString(16) превръща десетични в 16-тично 
                                                          // метода toString(2) превръща десетични в двоичнa бр. система
   }
 
@@ -32,6 +32,10 @@ class Hex {
     }
 
   }
+  parse(string){
+    return parseInt(string,16)
+   
+  }
 }
 
 let FF = new Hex(255);
@@ -41,4 +45,4 @@ let a = new Hex(10);
 let b = new Hex(5);
 console.log(a.plus(b).toString());
 console.log(a.plus(b).toString()==='0xF');
-// console.log(FF.parse('AAA'));
+ console.log(FF.parse('AAA'));
