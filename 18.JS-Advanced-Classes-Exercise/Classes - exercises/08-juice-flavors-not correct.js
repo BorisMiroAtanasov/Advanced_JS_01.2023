@@ -1,5 +1,5 @@
 function juiceFlavors(array){
-    let result = new Map;
+    let result = new Map();
 
     for (const inputJuice of array) {
         let [juiceName, quantity] = inputJuice.split(' => ');

@@ -1,6 +1,14 @@
-function juiceFlavors(array){
-  let juicesAmount = new Map;
-  
+function juiceFlavors(juiceArr){
+  let juicesAmount = new Map();
+  let bottles = new Map();
+  for (let index = 0; index < juiceArr.length; index++) {
+    let[juicesName, amount] = juiceArr[index].split(' => ');
+    amount = Number(amount);
+    
+    
+    
+  }
+
 }
 
 juiceFlavors(['Orange => 2000',
