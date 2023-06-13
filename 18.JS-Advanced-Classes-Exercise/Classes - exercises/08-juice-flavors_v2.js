@@ -9,9 +9,9 @@ function juiceFlavors(juiceArr){
         juicesAmount.set(juicesName,0)
     }
     let totalAmout = juicesAmount.get(juicesName) + amount;
-    if(totalAmout > 1000) {
+    if(totalAmout >= 1000) {
         if(!juiceBottles.has(juicesName)){
-            juicesAmount.set(juicesName,0)
+            juiceBottles.set(juicesName,0)
 
     }
     let newBottles = Math.trunc(totalAmout / 1000);
@@ -33,9 +33,9 @@ console.log(juiceFlavors(['Orange => 2000',
 
 console.log('...................');
 
-juiceFlavors(['Kiwi => 234',
+console.log(juiceFlavors(['Kiwi => 234',
 'Pear => 2345',
 'Watermelon => 3456',
 'Kiwi => 4567',
 'Pear => 5678',
-'Watermelon => 6789'])
+'Watermelon => 6789']))
