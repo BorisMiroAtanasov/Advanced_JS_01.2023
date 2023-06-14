@@ -16,14 +16,19 @@ class ArtGallery{
             throw new Error(`This article model is not included in this gallery!`)
         }
         for (const el of  this.listOfArticles) {
-            
+            if(el.articleName === articleName && el.articleModel === articleModel){
+                el.quantity += quantity
+                isInTheArr = true;
+            }
             
         }
-
+        if(isInTheArr = false){
+            this.listOfArticles.push({articleModel, articleName, quantity})
+        }
+        return `Successfully added article ${articleName} with a new quantity- ${quantity}.`
 
         }
-    
-        
+       
     }
     
 
