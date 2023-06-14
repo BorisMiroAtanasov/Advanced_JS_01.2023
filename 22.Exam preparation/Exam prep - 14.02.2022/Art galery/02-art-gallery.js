@@ -3,11 +3,30 @@ class ArtGallery{
         this.creator = creator;
         this.possibleArticles  = {"picture":200,"photo":50,"item":250};
         this.listOfArticles = [];
-        this.guests  = guests;
+        this.guests  = [];
     
     }
+
+    addArticle( articleModel, articleName, quantity ){ //picture', 'Mona Liza', 3
+       
+         articleModel = articleModel.toLowerCase()
+         let isInTheArr = false;
+
+         if(!this.possibleArticles[articleModel]){
+            throw new Error(`This article model is not included in this gallery!`)
+        }
+        for (const el of  this.listOfArticles) {
+            
+            
+        }
+
+
+        }
     
-}
+        
+    }
+    
+
 
 
 
