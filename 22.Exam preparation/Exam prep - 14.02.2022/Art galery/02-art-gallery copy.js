@@ -28,26 +28,34 @@ class ArtGallery {
   }
 
   inviteGuest(guestName, personality) {
-
-    for (let guest of this.guests) {
-        if(guest.guestName === guestName){
-            throw new Error(`${guestName} has already been invited.`)
-        }
-    }
-    let obj = {
+    let newGest = {
         guestName,
-         points:0, 
-         purchaseArticle:0,
-        }
-    if(personality === 'Vip'){
-        obj.points = 500
-    }else if(personality === 'Middle'){
-        obj.points = 250;
-    }else{
-        obj.points = 50;
+       points: 0,
+        "purchaseArticle": 0
     }
-    this.guests.push(obj)
-    return`You have successfully invited ${guestName}!`
+    for (const el of this.guests) {
+      if(el.includes(guestName)){
+        throw new Error`${guestName} has already been invited.`
+     }else{
+       this.guests.push(newGest);
+       console.log(this.guests);
+     }
+      
+    }
+    
+   
+    // for (const element of this.guests) {
+    //     // if(personality === 'Vip'){
+    //     //     element[points] = 500;
+    //     // }else if(personality === 'Middle'){
+    //     //     element[points] = 250;
+    //     // }else{
+    //     //     element[points] = 50;
+    //     // }
+    //     console.log(element);
+        
+    // }
+   // return (`You have successfully invited ${guestName}!`)
 
 }
 
