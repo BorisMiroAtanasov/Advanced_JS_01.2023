@@ -24,6 +24,7 @@ class ArtGallery {
         if ((isInTheArr = false)) {
             this.listOfArticles.push({ articleModel, articleName, quantity });
         }
+        //console.log(listOfArticles.join(','));
         return `Successfully added article ${articleName} with a new quantity- ${quantity}.`;
     }
 
@@ -51,23 +52,33 @@ class ArtGallery {
 
     }
     buyArticle(articleModel, articleName, guestName) {
-        if(!this.listOfArticles.includes(articleName) || !this.possibleArticles.includes(articleModel) ){
+        let article;
+        let guest;
+        let isArticleIntheArr = false;
+        for (const el of this.listOfArticles) {
+            if (el.articleName !== articleName || el.articleModel !== articleModel) {
+
+                isArticleIntheArr = false;
+            } else {
+                article = el;
+                isArticleIntheArr = true;
+                break;
+            }
+        }
+        if(!isArticleIntheArr){ //(isArticleIntheArr = false) да се проебва дали е вярно
             throw new Error(`This article is not found.`)
         }
-        // listOfArticles.forEach(element => { 
-        //     console.log(element[articleName] ); 
-            
-        // });
+
 
 
     }
 
 }
 
-// const artGallery = new ArtGallery('Curtis Mayfield');
-// console.log(artGallery.addArticle('picture', 'Mona Liza', 3));
-// console.log(artGallery.addArticle('Item', 'Ancient vase', 2));
-// console.log(artGallery.addArticle('PICTURE', 'Mona Liza', 1));
+const artGallery = new ArtGallery('Curtis Mayfield');
+console.log(artGallery.addArticle('picture', 'Mona Liza', 3));
+console.log(artGallery.addArticle('Item', 'Ancient vase', 2));
+console.log(artGallery.addArticle('PICTURE', 'Mona Liza', 1));
 
 // const artGallery = new ArtGallery("Curtis Mayfield");
 // console.log(artGallery.inviteGuest("John", "Vip"));
@@ -75,12 +86,12 @@ class ArtGallery {
 // console.log(artGallery.inviteGuest("John", "Middle"));
 
 
-const artGallery = new ArtGallery('Curtis Mayfield');
-artGallery.addArticle('picture', 'Mona Liza', 3);
-artGallery.addArticle('Item', 'Ancient vase', 2);
-artGallery.addArticle('picture', 'Mona Liza', 1);
-artGallery.inviteGuest('John', 'Vip');
-artGallery.inviteGuest('Peter', 'Middle');
-console.log(artGallery.buyArticle('picture', 'Mona Liza', 'John'));
-console.log(artGallery.buyArticle('item', 'Ancient vase', 'Peter'));
-console.log(artGallery.buyArticle('item', 'Mona Liza', 'John'));
+// const artGallery = new ArtGallery('Curtis Mayfield');
+// artGallery.addArticle('picture', 'Mona Liza', 3);
+// artGallery.addArticle('Item', 'Ancient vase', 2);
+// artGallery.addArticle('picture', 'Mona Liza', 1);
+// artGallery.inviteGuest('John', 'Vip');
+// artGallery.inviteGuest('Peter', 'Middle');
+// console.log(artGallery.buyArticle('picture', 'Mona Liza', 'John'));
+// console.log(artGallery.buyArticle('item', 'Ancient vase', 'Peter'));
+// console.log(artGallery.buyArticle('item', 'Mona Liza', 'John'));
