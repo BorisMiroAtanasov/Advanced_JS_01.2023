@@ -65,7 +65,7 @@ class ArtGallery {
                 break;
             }
         }
-        if(!isArticleIntheArr){ //(isArticleIntheArr = false) да се проебва дали е вярно
+        if(!isArticleIntheArr){ //(isArticleIntheArr === false) да се проебва дали е вярно
             throw new Error(`This article is not found.`)
         };
         if(article.quantity === 0){
@@ -95,11 +95,30 @@ class ArtGallery {
         }
         return `${guestName} successfully purchased the article worth ${this.possibleArticles[articleModel]} points.`
 
+    }
+    showGalleryInfo (criteria){
+        let result = [];
 
+        if(criteria === 'article'){
+            result = [`Articles information:`];
+            this.listOfArticles.forEach(element => {
+                result.push(`${element.articleModel} - ${element.articleName} - ${element.quantity}`)
+                
+            });
+        }
 
+        if(criteria === 'guest'){
+            result = [`Guests information:`];
+            this.guests.forEach(element => {
+                result.push(` ${element.guestName} - ${element.purchaseArticle}`)
+            })
+           }
+           return result.join('\n'); 
 
 
     }
+
+
 
 }
 
@@ -114,12 +133,42 @@ class ArtGallery {
 // console.log(artGallery.inviteGuest("John", "Middle"));
 
 
-const artGallery = new ArtGallery('Curtis Mayfield');
+// const artGallery = new ArtGallery('Curtis Mayfield');
+// artGallery.addArticle('picture', 'Mona Liza', 3);
+// artGallery.addArticle('Item', 'Ancient vase', 2);
+// artGallery.addArticle('picture', 'Mona Liza', 1);
+// artGallery.inviteGuest('John', 'Vip');
+// artGallery.inviteGuest('Peter', 'Middle');
+// console.log(artGallery.buyArticle('picture', 'Mona Liza', 'John'));
+// console.log(artGallery.buyArticle('item', 'Ancient vase', 'Peter'));
+// console.log(artGallery.buyArticle('item', 'Mona Liza', 'John'));
+
+
+const artGallery = new ArtGallery('Curtis Mayfield'); 
 artGallery.addArticle('picture', 'Mona Liza', 3);
 artGallery.addArticle('Item', 'Ancient vase', 2);
 artGallery.addArticle('picture', 'Mona Liza', 1);
 artGallery.inviteGuest('John', 'Vip');
 artGallery.inviteGuest('Peter', 'Middle');
-console.log(artGallery.buyArticle('picture', 'Mona Liza', 'John'));
-console.log(artGallery.buyArticle('item', 'Ancient vase', 'Peter'));
-console.log(artGallery.buyArticle('item', 'Mona Liza', 'John'));
+artGallery.buyArticle('picture', 'Mona Liza', 'John');
+artGallery.buyArticle('item', 'Ancient vase', 'Peter');
+console.log(artGallery.showGalleryInfo('article'));
+console.log(artGallery.showGalleryInfo('guest'));
+
+
+
+/*  showGalleryInfo(criteria) {
+    const result = [];
+    if (criteria === 'article') {
+        result.push('Articles information:');
+        this.listOfArticles.forEach(a => result.push(`${a.articleModel} - ${a.articleName} - ${a.quantity}`));
+    } else if (criteria === 'guest') {
+        result.push('Guests information:');
+        this.guests.forEach(g => result.push(`${g.guestName} - ${g.purchaseArticle}`));
+    }
+
+    return result.join('\n');
+}
+}
+
+*/
