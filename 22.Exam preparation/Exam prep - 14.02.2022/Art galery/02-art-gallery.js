@@ -1,55 +1,66 @@
 class ArtGallery {
-  constructor(creator) {
-    this.creator = creator;
-    this.possibleArticles = { picture: 200, photo: 50, item: 250 };
-    this.listOfArticles = [];
-    this.guests = [];
-  }
-
-  addArticle(articleModel, articleName, quantity) {
-    //picture', 'Mona Liza', 3
-
-    articleModel = articleModel.toLowerCase();
-    let isInTheArr = false;
-
-    if (!this.possibleArticles[articleModel]) {
-      throw new Error(`This article model is not included in this gallery!`);
+    constructor(creator) {
+        this.creator = creator;
+        this.possibleArticles = { picture: 200, photo: 50, item: 250 };
+        this.listOfArticles = [];
+        this.guests = [];
     }
-    for (const el of this.listOfArticles) {
-      if (el.articleName === articleName && el.articleModel === articleModel) {
-        el.quantity += quantity;
-        isInTheArr = true;
-      }
-    }
-    if ((isInTheArr = false)) {
-      this.listOfArticles.push({ articleModel, articleName, quantity });
-    }
-    return `Successfully added article ${articleName} with a new quantity- ${quantity}.`;
-  }
 
-  inviteGuest(guestName, personality) {
+    addArticle(articleModel, articleName, quantity) {
+        //picture', 'Mona Liza', 3
 
-    for (let guest of this.guests) {
-        if(guest.guestName === guestName){
-            throw new Error(`${guestName} has already been invited.`)
+        articleModel = articleModel.toLowerCase();
+        let isInTheArr = false;
+
+        if (!this.possibleArticles[articleModel]) {
+            throw new Error(`This article model is not included in this gallery!`);
         }
-    }
-    let obj = {
-        guestName,
-         points:0, 
-         purchaseArticle:0,
+        for (const el of this.listOfArticles) {
+            if (el.articleName === articleName && el.articleModel === articleModel) {
+                el.quantity += quantity;
+                isInTheArr = true;
+            }
         }
-    if(personality === 'Vip'){
-        obj.points = 500
-    }else if(personality === 'Middle'){
-        obj.points = 250;
-    }else{
-        obj.points = 50;
+        if ((isInTheArr = false)) {
+            this.listOfArticles.push({ articleModel, articleName, quantity });
+        }
+        return `Successfully added article ${articleName} with a new quantity- ${quantity}.`;
     }
-    this.guests.push(obj)
-    return`You have successfully invited ${guestName}!`
 
-}
+    inviteGuest(guestName, personality) {
+
+        for (let guest of this.guests) {
+            if (guest.guestName === guestName) {
+                throw new Error(`${guestName} has already been invited.`)
+            }
+        }
+        let obj = {
+            guestName,
+            points: 0,
+            purchaseArticle: 0,
+        }
+        if (personality === 'Vip') {
+            obj.points = 500
+        } else if (personality === 'Middle') {
+            obj.points = 250;
+        } else {
+            obj.points = 50;
+        }
+        this.guests.push(obj)
+        return `You have successfully invited ${guestName}!`
+
+    }
+    buyArticle(articleModel, articleName, guestName) {
+        if(!this.listOfArticles.includes(articleName) || !this.possibleArticles.includes(articleModel) ){
+            throw new Error(`This article is not found.`)
+        }
+        // listOfArticles.forEach(element => { 
+        //     console.log(element[articleName] ); 
+            
+        // });
+
+
+    }
 
 }
 
@@ -58,7 +69,18 @@ class ArtGallery {
 // console.log(artGallery.addArticle('Item', 'Ancient vase', 2));
 // console.log(artGallery.addArticle('PICTURE', 'Mona Liza', 1));
 
-const artGallery = new ArtGallery("Curtis Mayfield");
-console.log(artGallery.inviteGuest("John", "Vip"));
-console.log(artGallery.inviteGuest("Peter", "Middle"));
-console.log(artGallery.inviteGuest("John", "Middle"));
+// const artGallery = new ArtGallery("Curtis Mayfield");
+// console.log(artGallery.inviteGuest("John", "Vip"));
+// console.log(artGallery.inviteGuest("Peter", "Middle"));
+// console.log(artGallery.inviteGuest("John", "Middle"));
+
+
+const artGallery = new ArtGallery('Curtis Mayfield');
+artGallery.addArticle('picture', 'Mona Liza', 3);
+artGallery.addArticle('Item', 'Ancient vase', 2);
+artGallery.addArticle('picture', 'Mona Liza', 1);
+artGallery.inviteGuest('John', 'Vip');
+artGallery.inviteGuest('Peter', 'Middle');
+console.log(artGallery.buyArticle('picture', 'Mona Liza', 'John'));
+console.log(artGallery.buyArticle('item', 'Ancient vase', 'Peter'));
+console.log(artGallery.buyArticle('item', 'Mona Liza', 'John'));
