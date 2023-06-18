@@ -10,8 +10,30 @@ class SummerCamp{
     registerParticipant (name, condition, money){
         if(!this.priceForTheCamp[condition]){
             throw new Error(`Unsuccessful registration at the camp.`)
+        }
+
+        let participant = {name,
+             condition, 
+             power:100,
+             wins:  0,
+            }
+
+     
+        
+
+        if(this.listOfParticipants.some(x => x.name == name)) {
+            return `The ${name} is already registered at the camp.`
+            
+        }else if ( this.priceForTheCamp[condition] > money){
+            return `The money is not enough to pay the stay at the camp.`
+           
+        }else{
+            this.listOfParticipants.push(participant);
+            return `The ${name} was successfully registered.`
 
         }
+        
+
     }
 
 }
@@ -29,7 +51,7 @@ class SummerCamp{
 
 
 const summerCamp = new SummerCamp("Jane Austen", "Pancharevo Sofia 1137, Bulgaria");
-// console.log(summerCamp.registerParticipant("Petar Petarson", "student", 200));
-// console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
-// console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
+ console.log(summerCamp.registerParticipant("Petar Petarson", "student", 200));
+console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
+console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
 console.log(summerCamp.registerParticipant("Leila Wolfe", "childd", 200));
