@@ -66,6 +66,23 @@ class SummerCamp {
       }
     }
   }
+
+  toString () {
+    let result = [];
+    result.push(`${this.organizer} will take ${this.listOfParticipants.length} participants on camping to ${this.location}`)
+
+    this.listOfParticipants
+    .sort((a,b) => b.wins - a.wins)
+    .forEach(x => {
+        result.push(`${x.name} - ${x.condition} - ${x.power} - ${x.wins}`)
+    });
+    return result.join('\n')
+ 
+  
+
+  }
+
+
 }
 
 // const summerCamp = new SummerCamp(
@@ -82,19 +99,31 @@ class SummerCamp {
 // console.log(summerCamp.unregisterParticipant("Petar"));
 // console.log(summerCamp.unregisterParticipant("Petar Petarson"));
 
-const summerCamp = new SummerCamp(
-  "Jane Austen",
-  "Pancharevo Sofia 1137, Bulgaria"
-);
+// const summerCamp = new SummerCamp(
+//   "Jane Austen",
+//   "Pancharevo Sofia 1137, Bulgaria"
+// );
+// console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
+// console.log(summerCamp.timeToPlay("Battleship", "Petar Petarson"));
+// console.log(summerCamp.registerParticipant("Sara Dickinson", "child", 200));
+// console.log(summerCamp.timeToPlay("WaterBalloonFights", "Petar Petarson", "Sara Dickinson"));
+// console.log(summerCamp.registerParticipant("Dimitur Kostov", "student", 300));
+// console.log(
+//   summerCamp.timeToPlay(
+//     "WaterBalloonFights",
+//     "Petar Petarson",
+//     "Dimitur Kostov"
+//   )
+// );
+
+
+
+const summerCamp = new SummerCamp("Jane Austen", "Pancharevo Sofia 1137, Bulgaria");
 console.log(summerCamp.registerParticipant("Petar Petarson", "student", 300));
 console.log(summerCamp.timeToPlay("Battleship", "Petar Petarson"));
 console.log(summerCamp.registerParticipant("Sara Dickinson", "child", 200));
 //console.log(summerCamp.timeToPlay("WaterBalloonFights", "Petar Petarson", "Sara Dickinson"));
 console.log(summerCamp.registerParticipant("Dimitur Kostov", "student", 300));
-console.log(
-  summerCamp.timeToPlay(
-    "WaterBalloonFights",
-    "Petar Petarson",
-    "Dimitur Kostov"
-  )
-);
+console.log(summerCamp.timeToPlay("WaterBalloonFights", "Petar Petarson", "Dimitur Kostov"));
+
+console.log(summerCamp.toString());
