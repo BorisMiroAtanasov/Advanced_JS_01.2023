@@ -34,7 +34,7 @@ function solve() {
     let priceOfProduct = Number(priceFild.value);
     newTdModel.textContent = modelFild.value;
     newTdPrice.textContent = priceOfProduct.toFixed(2);
-    moreInfoBtn.textContent = "More information";
+    moreInfoBtn.textContent = "More Info";
     buyBtn.textContent = "Buy it";
     buyBtn.classList.add("buyBtn");
     moreInfoBtn.classList.add("moreBtn");
@@ -46,12 +46,12 @@ function solve() {
    
 
     moreInfoBtn.addEventListener('click', (event) =>{
-        if(event.currentTarget.textContent == 'More information'){
+        if(event.currentTarget.textContent == 'More Info'){
             contentRow.style.display = "contents"
             event.currentTarget.textContent = 'Less Info'
         }else{
             contentRow.style.display = "none"
-            event.currentTarget.textContent = 'More information'
+            event.currentTarget.textContent = 'More Info'
 
         }
     });
