@@ -10,7 +10,7 @@ function solve() {
     addBtn.addEventListener('click', (event) =>{
         event.preventDefault();
 
-    if(rcipientInputElement.value === '' || titleInputElemet ==='' || massageInputElement ==='' ){
+    if(!rcipientInputElement.value || titleInputElemet.value =='' || massageInputElement.value =='' ){
         return
     };
 
