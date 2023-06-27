@@ -44,6 +44,7 @@ function solve() {
     textAreaLi.appendChild(headTitle);
     textAreaLi.appendChild(headRecipient);
     textAreaLi.appendChild(massage);
+    textAreaLi.appendChild(listAction);
 
     listElementUl.appendChild(textAreaLi)
 
