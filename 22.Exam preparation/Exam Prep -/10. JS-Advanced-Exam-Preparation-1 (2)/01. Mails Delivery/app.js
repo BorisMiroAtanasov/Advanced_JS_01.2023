@@ -20,6 +20,7 @@ function solve() {
     let massage = document.createElement('span');
 
     let listAction = document.createElement('div');
+    listAction.setAttribute("id", "list-action")
 
     let sendBtn = document.createElement('button');
     let deleteBtn = document.createElement('button');
@@ -33,16 +34,33 @@ function solve() {
     deleteBtn.textContent = 'Delete';
 
 
+    listAction.appendChild(sendBtn);
+    listAction.appendChild(deleteBtn);
 
+    headTitle.textContent = `Title: ${titleInputElemet.value}`;
+    headRecipient.textContent = `Recipient Name: ${rcipientInputElement.value}`;
+    massage.textContent = massageInputElement.value;
 
+    textAreaLi.appendChild(headTitle);
+    textAreaLi.appendChild(headRecipient);
+    textAreaLi.appendChild(massage);
 
-
-
-
+    listElementUl.appendChild(textAreaLi)
 
 
 
     });
+
+    resetBtn.addEventListener('click', (event) =>{
+        event.preventDefault();
+
+        rcipientInputElement.value = '';
+        titleInputElemet.value = '';
+        massageInputElement.value = '';
+        
+    })
+
+
 
 
 
