@@ -21,8 +21,23 @@ function solve() {
 
     let listAction = document.createElement('div');
 
+    let sendBtn = document.createElement('button');
+    let deleteBtn = document.createElement('button');
 
-    
+    sendBtn.setAttribute("type", "submit");
+    sendBtn.setAttribute("id", "send");
+    sendBtn.textContent = 'Send';
+
+    deleteBtn.setAttribute("type", "submit");
+    deleteBtn.setAttribute("id", "delete");
+    deleteBtn.textContent = 'Delete';
+
+
+
+
+
+
+
 
 
 
