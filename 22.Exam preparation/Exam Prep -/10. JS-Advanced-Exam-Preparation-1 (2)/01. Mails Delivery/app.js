@@ -46,7 +46,47 @@ function solve() {
     textAreaLi.appendChild(massage);
     textAreaLi.appendChild(listAction);
 
-    listElementUl.appendChild(textAreaLi)
+    listElementUl.appendChild(textAreaLi);
+
+
+    sendBtn.addEventListener('click', (event) =>{
+        let clickedMail =  event.currentTarget.parentNode.parentNode;
+        // console.log(clickedMail);
+        let sendMailsUl = document.querySelector('.sent-list');
+        let sendMailLi = document.createElement('li');
+        //console.log(sendMailsUl);
+        let spanName = document.createElement('span');
+        let spanTitle = document.createElement('span');
+
+        let listActionDiv = document.createElement('div');
+        listActionDiv.setAttribute("class", "btn");
+
+        let deleteBtninDiv = document.createElement('button');
+        deleteBtninDiv.setAttribute("type","submit");
+        deleteBtninDiv.textContent = 'Delete';
+
+        let currentMail = clickedMail.parentNode ;
+        let elementsOfMail =  Array.from(currentMail.firstElementChild.childNodes)
+        // let currentTitle = ;
+
+      
+        spanName.textContent = `To: ${(elementsOfMail[1].textContent.split(': ')[1])}`;
+        spanTitle.textContent = `Title: ${(elementsOfMail[1].textContent.split(': ')[1])}`;
+
+
+        listActionDiv.appendChild(deleteBtninDiv);
+
+        sendMailLi.appendChild(spanName);
+        sendMailLi.appendChild(spanTitle);
+        sendMailLi.appendChild(listActionDiv);
+
+        sendMailsUl.appendChild(sendMailLi);
+        textAreaLi.remove()
+       
+   
+
+     })
+ 
 
 
 
@@ -60,6 +100,8 @@ function solve() {
         massageInputElement.value = '';
         
     })
+
+    
 
 
 
