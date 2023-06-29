@@ -11,7 +11,7 @@ function solve() {
     event.preventDefault();
 
     if (
-      !rcipientInputElement.value ||
+      rcipientInputElement.value == "" ||
       titleInputElemet.value == "" ||
       massageInputElement.value == ""
     ) {
@@ -147,6 +147,10 @@ function solve() {
 
 
     })
+
+    rcipientInputElement.value = "";
+    titleInputElemet.value = "";
+    massageInputElement.value = "";
 
 
   });
