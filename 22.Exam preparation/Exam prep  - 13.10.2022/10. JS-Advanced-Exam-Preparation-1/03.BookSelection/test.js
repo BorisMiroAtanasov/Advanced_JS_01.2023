@@ -42,10 +42,26 @@ describe("Tests of bookSelection", function() {
 
 
      describe("suitableTitles", function() {
-        it("Can't afford the book", () =>{
-            expect(bookSelection.suitableTitles(2 ,1)).to.equal(`You don't have enough money`)
+        it("Returns invalid input first param is not array", () =>{
+            expect(()=>bookSelection.suitableTitles(1 ,'a')).to.throw(`Invalid input`)
            
-            
+        });
+        it("Returns invalid input second param is not string", () =>{
+            expect(()=>bookSelection.suitableTitles(['a','b'] ,1)).to.throw(`Invalid input`)
+           
+        });
+        it("Returns invalid input first and second params  are not correct", () =>{
+            expect(()=>bookSelection.suitableTitles(1 ,1)).to.throw(`Invalid input`)
+           
+        });
+        it("Correct output data", () =>{
+            let input = [
+                {title: "The Da Vinci Code", genre: "Thriller"},
+                {title: "The Da Vinci Code1", genre: "Thriller"}
+            ];
+            let result = ["The Da Vinci Code", "The Da Vinci Code1"]
+            expect(bookSelection.suitableTitles(input, 'Thriller').join(', ')).to.equal(result.join(', '))
+           
         });
        
         
