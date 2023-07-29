@@ -9,7 +9,7 @@ class LibraryCollection {
        
        
         if( this.books.length >= this.capacity ){
-            return `Not enough space in the collection.`
+            throw new Error (`Not enough space in the collection.`)
         }else{
             let newBook = {
                 bookName,
@@ -29,11 +29,11 @@ class LibraryCollection {
         //let found = this.availableCars.find((x) => x.model == model);
 
         if(!foundBook){
-            return `${bookName} is not in the collection.`
+            throw new Error (`${bookName} is not in the collection.`)
         }
         if(foundBook){
             if(foundBook.payed == true){
-                return `${bookName} has already been paid.`
+                throw new Error (`${bookName} has already been paid.`)
             }else{
                 foundBook.payed = true;
                 return `${bookName} has been successfully paid.`
@@ -67,10 +67,10 @@ class LibraryCollection {
         if(!matchAutor){
             `${bookAuthor} is not in the collection.`
         }
-        if(bookAuthor == null){
+        if(bookAuthor == undefined){
             let sortedBooks = this.books.sort((a,b) =>a.bookName.localeCompare(b.bookName));
             result = sortedBooks.map(b => `${b.bookName} == ${b.bookAuthor} - ${(b.payed ? "Has Paid" : "Not Paid")}.`)
-           result.unshift(`The book collection has ${ (this.books.length - this.capacity  )} empty spots left.`);
+           result.unshift(`The book collection has ${(this.capacity - this.books.length)} empty spots left.`);
            //result.push(`${sortedBooks.bookName} == ${sortedBooks.bookAuthor} - ${(sortedBooks.payed ? "Has Paid" : "Not Paid")}.`)
            return result.join('\n')
         }else if(bookAuthor == matchAutor.bookAuthor ){
