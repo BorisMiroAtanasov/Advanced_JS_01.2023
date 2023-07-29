@@ -6,16 +6,17 @@ class LibraryCollection {
     }
 
     addBook (bookName, bookAuthor){
-        let newBook = {
-            bookName,
-            bookAuthor,
-            payed: false,
-        }
+       
        
         if( this.books.length >= this.capacity ){
             return `Not enough space in the collection.`
         }else{
-            this.books.push(this.newBook);
+            let newBook = {
+                bookName,
+                bookAuthor,
+                payed: false,
+            }
+            this.books.push(newBook);
             return `The ${bookName}, with an author ${bookAuthor}, collect.`
 
         }
@@ -24,8 +25,63 @@ class LibraryCollection {
     }
 
     payBook( bookName ){
-        
+        let foundBook =  this.books.find((x) => x.bookName == bookName)
+        //let found = this.availableCars.find((x) => x.model == model);
+
+        if(!foundBook){
+            return `${bookName} is not in the collection.`
+        }
+        if(foundBook){
+            if(foundBook.payed == true){
+                return `${bookName} has already been paid.`
+            }else{
+                foundBook.payed = true;
+                return `${bookName} has been successfully paid.`
+
+            }
+        }
     }
+
+    removeBook(bookName) {
+        let index =  this.books.findIndex(b => b.bookName == bookName);
+        let match = this.books[index];
+       // console.log(match);
+
+        if(match == undefined){
+            throw new Error(`The book, you're looking for, is not found.`)
+        }
+        if(match.payed == false){
+            throw new Error(`${bookName} need to be paid before removing from the collection.`)
+        }else{
+            this.books.splice(index,1);
+            return `${bookName} remove from the collection.`
+        }
+        
+       
+    }
+
+    getStatistics(bookAuthor){
+        let foundAuthorIndex  = this.books.findIndex(b => b.bookAuthor == bookAuthor);
+        let matchAutor = this.books[foundAuthorIndex];
+        let result=[];
+        if(!matchAutor){
+            `${bookAuthor} is not in the collection.`
+        }
+        if(bookAuthor == null){
+            let sortedBooks = this.books.sort((a,b) =>a.bookName.localeCompare(b.bookName));
+            result = sortedBooks.map(b => `${b.bookName} == ${b.bookAuthor} - ${(b.payed ? "Has Paid" : "Not Paid")}.`)
+           result.unshift(`The book collection has ${ (this.books.length - this.capacity  )} empty spots left.`);
+           //result.push(`${sortedBooks.bookName} == ${sortedBooks.bookAuthor} - ${(sortedBooks.payed ? "Has Paid" : "Not Paid")}.`)
+           return result.join('\n')
+        }else if(bookAuthor == matchAutor.bookAuthor ){
+            result = `${matchAutor.bookName} == ${matchAutor.bookAuthor} - ${(matchAutor.payed ? "Has Paid" : "Not Paid")}.`
+            return result
+        }
+
+
+    }
+
+
 
 
 
@@ -36,7 +92,28 @@ class LibraryCollection {
 // console.log(library.addBook('Don Quixote', 'Miguel de Cervantes'));
 // console.log(library.addBook('Ulysses', 'James Joyce'));
 
-const library = new LibraryCollection(2)
+// const library = new LibraryCollection(2)
+// library.addBook('In Search of Lost Time', 'Marcel Proust');
+// console.log(library.payBook('In Search of Lost Time'));
+// console.log(library.payBook('Don Quixote'));
+
+
+// const library = new LibraryCollection(2)
+// library.addBook('In Search of Lost Time', 'Marcel Proust');
+// library.addBook('Don Quixote', 'Miguel de Cervantes');
+// library.payBook('Don Quixote');
+// console.log(library.removeBook('Don Quixote'));
+// console.log(library.removeBook('In Search of Lost Time'));
+
+
+// const library = new LibraryCollection(2)
+// console.log(library.addBook('Don Quixote', 'Miguel de Cervantes'));
+// console.log(library.getStatistics('Miguel de Cervantes'));
+
+
+const library = new LibraryCollection(5)
+library.addBook('Don Quixote', 'Miguel de Cervantes');
+library.payBook('Don Quixote');
 library.addBook('In Search of Lost Time', 'Marcel Proust');
-console.log(library.payBook('In Search of Lost Time'));
-console.log(library.payBook('Don Quixote'));
+library.addBook('Ulysses', 'James Joyce');
+console.log(library.getStatistics());
