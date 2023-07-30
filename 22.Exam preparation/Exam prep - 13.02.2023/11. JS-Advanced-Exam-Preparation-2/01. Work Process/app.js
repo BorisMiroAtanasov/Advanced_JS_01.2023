@@ -32,14 +32,11 @@ function solve() {
 
 
       const currentSalary = Number(addSalary.textContent);
-      addSalary.textContent = (Number(salary.value)+ currentSalary).toFixed(2)
+      addSalary.textContent = (Number(salary.value)+ currentSalary).toFixed(2);
+      clearInputFields();
+      
 
-      fName.value = '';
-      lName.value = '';
-      email.value = '';
-      birth.value = '';
-      position.value = '';
-      salary.value = '';
+  
     }
   });
 
@@ -52,6 +49,15 @@ function solve() {
     }
     return element
 
+  }
+
+  function clearInputFields(){
+    fName.value = '';
+    lName.value = '';
+    email.value = '';
+    birth.value = '';
+    position.value = '';
+    salary.value = '';
   }
 
 }
