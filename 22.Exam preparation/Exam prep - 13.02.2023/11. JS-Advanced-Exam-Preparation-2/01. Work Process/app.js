@@ -13,13 +13,22 @@ function solve() {
 
     if (  fName.value && lName.value && email.value && birth.value && position.value && salary.value) {
       //console.log("click");
-      const tr = createElement('tr');
-      createElement('td', `${fName.value}`, tr);
-      createElement('td', `${lName.value}`, tr);
-      createElement('td', `${email.value}`, tr);
-      createElement('td', `${birth.value}`, tr);
-      createElement('td', `${position.value}`, tr);
-      createElement('td', `${salary.value}`, tr);
+      addEmploee(e,fName.value , lName.value ,email.value , birth.value , position.value , salary.value)
+
+    
+      clearInputFields();
+    
+    }
+  });
+
+  function addEmploee(e,fName, lName, email,birth, position,salary){
+    const tr = createElement('tr');
+      createElement('td', `${fName}`, tr);
+      createElement('td', `${lName}`, tr);
+      createElement('td', `${email}`, tr);
+      createElement('td', `${birth}`, tr);
+      createElement('td', `${position}`, tr);
+      createElement('td', `${salary}`, tr);
       const td =  createElement('td', '', tr);
       let fireBtn = createElement('button', 'Fired', td);
       fireBtn.setAttribute('class', 'fired');
@@ -27,18 +36,39 @@ function solve() {
       editBtn.setAttribute('class', 'edit');
       tbody.appendChild(tr);
 
-
-
-
-
       const currentSalary = Number(addSalary.textContent);
-      addSalary.textContent = (Number(salary.value)+ currentSalary).toFixed(2);
-      clearInputFields();
-      
+      addSalary.textContent = (Number(salary)+ currentSalary).toFixed(2);
+      editBtn.addEventListener('click', (e) => editWorker(e,fName, lName, email , birth, position, salary ));
+      fireBtn.addEventListener('click', (e)=> fireEmploee(e, salary))
 
+
+  }
+
+  function fireEmploee(e, salary){
+e.preventDefault();
+e.target.parentNode.parentNode.remove()
+reduceSalarySalarySum(salary)
+    
+  }
+
+  function editWorker(e, firsName, secondName, emailAdress,birthDate , currentPosition, currentSalary){
+    e.preventDefault();
+    e.target.parentNode.parentNode.remove();
+    fName.value = firsName;
+    lName.value = secondName;
+    email.value = emailAdress;
+    birth.value = birthDate;
+    position.value = currentPosition;
+    salary.value = currentSalary;
+
+    reduceSalarySalarySum(currentSalary)
+    
+  }
   
-    }
-  });
+  function reduceSalarySalarySum(salary) {
+    const sumSalary = Number(addSalary.textContent);
+    addSalary.textContent = Math.abs(Number(salary) - sumSalary).toFixed(2);
+  }
 
  function createElement(type, content, parent){
     const element = document.createElement(type);
