@@ -39,9 +39,13 @@ function solve(){
         const clearBtn = completedOrders.querySelector('button')
         //console.log(clearBtn);
         clearBtn.addEventListener('click', (e)=> {
-           
-            e.target.parentNode.lastElementChild.remove();
+
+           let clearSection = completedOrders.querySelectorAll('.container')
+           Array.from(clearSection).forEach(container => container.remove())
+            //e.target.parentNode.lastElementChild.remove();
            // e.stopImmediatePropagation()
+        //   let divContainer =  e.target.parentNode
+        //   divContainer.remove()
         })
         
         
