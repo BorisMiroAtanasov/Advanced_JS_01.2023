@@ -59,9 +59,17 @@ function solve(){
         startBtn.setAttribute('class', 'start-btn');
         let finishBtn = createElement('button', 'Finish repair', div);
         finishBtn.setAttribute('class', 'finish-btn');
+        finishBtn.disabled = true;
+
+        startBtn.addEventListener('click', (e) =>{
+            finishBtn.disabled = false;
+            startBtn.disabled = true;
+            finishBtn.addEventListener('click', (e)=> finishBtnProcess(e,currentDescription, currentClientName, currentClientPhone, product) )
+
+        })
 
 
-        finishBtn.addEventListener('click', (e)=> finishBtnProcess(e,currentDescription, currentClientName, currentClientPhone, product) )
+       
 
 
        
