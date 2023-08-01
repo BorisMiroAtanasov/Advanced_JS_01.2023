@@ -22,6 +22,7 @@ function solve() {
   });
 
   function addEmploee(e,fName, lName, email,birth, position,salary){
+    e.preventDefault();
     const tr = createElement('tr');
       createElement('td', `${fName}`, tr);
       createElement('td', `${lName}`, tr);
