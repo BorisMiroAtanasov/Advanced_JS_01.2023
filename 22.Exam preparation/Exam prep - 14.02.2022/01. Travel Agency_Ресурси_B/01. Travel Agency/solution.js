@@ -16,8 +16,9 @@ function solution() {
     submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
         if(fnameInput.value && emailInput.value){
-            addPasinger(e, fnameInput.value, emailInput.value, phoneInput.value , addressInput.value, numberCodeInput.value );
-           // clearInputFields()
+            addPasinger(e, fnameInput.value, emailInput.value, phoneInput.value , addressInput.value, numberCodeInput.value);
+        clearInputFields()
+
            
         }
 
@@ -25,7 +26,7 @@ function solution() {
       
     
     
-    function addPasinger(e, fname, email, phone, address, numberCode){
+    function addPasinger( e, fname, email, phone, address, numberCode){
         const ul = createElement('ul');
         createElement('li',`Full Name: ${fname}`, ul);
         createElement('li',`Email: ${email}`, ul);
@@ -37,26 +38,39 @@ function solution() {
         editBTN.disabled = false
         continueBTN.disabled = false;
 
+        fnameInput.value = fname;
+        emailInput.value = email;
+        phoneInput.value = phone;
+        addressInput.value = address;
+        numberCodeInput.value = numberCode;
+
+        
         editBTN.addEventListener('click', (e) => editInfo(e,fname, email, phone, address, numberCode));
+  
         continueBTN.addEventListener('click', (e) => continueFunc(e))
+
         
 
-        function editInfo(e,fname, email, phone, address, numberCode){
-            e.target.parentNode.parentNode.firstElementChild.remove();
-               
-            fnameInput.value = fname;
-            emailInput.value = email;
-            phoneInput.value = phone;
-            addressInput.value = address;
-            numberCodeInput.value = numberCode;
-    
-            submitBtn.disabled = false;
-            editBTN.disabled = true
-           continueBTN.disabled = true;
-    
-          
-    
-        }
+        
+        
+
+    }
+    function editInfo(e,fname, email, phone, address, numberCode){
+        e.target.parentNode.parentNode.firstElementChild.remove();
+           
+        fnameInput.value = fname;
+        emailInput.value = email;
+        phoneInput.value = phone;
+        addressInput.value = address;
+        numberCodeInput.value = numberCode;
+       
+        
+        submitBtn.disabled = false;
+        editBTN.disabled = true
+       continueBTN.disabled = true;
+
+      
+
     }
 
     function continueFunc(e){
